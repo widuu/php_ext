@@ -24,10 +24,8 @@
 
 #include "php.h"
 #include "php_ini.h"
-  #include "php_ini.h"
 #include "ext/standard/info.h"
 #include "php_widuu.h"
- #include <zend_ini.h>
 
 
 ZEND_DECLARE_MODULE_GLOBALS(widuu)
