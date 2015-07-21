@@ -1,9 +1,9 @@
 #PHP Extension writing in c
 
-Dicretory|Exolain
+Dicretory|Explain
 ---|---
-hello_word| php hello word extension
-widuu| php ini settings and read php ini configure
+[hello_word](./hello_word)| php hello word extension
+[widuu](./widuu)| php ini settings and read php ini configure
 
 
 ## Contributing
