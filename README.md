@@ -4,6 +4,7 @@ Dicretory|Explain
 ---|---
 [hello_word](./hello_word)| php hello word extension
 [widuu](./widuu)| php ini settings and read php ini configure
+[w_string](./w_string)| php returning values
 
 
 ## Contributing
