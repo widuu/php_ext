@@ -10,16 +10,18 @@
 
     #define ZEND_FN(name) zif_##name
     #define ZEND_NAMED_FUNCTION(name)	void name(INTERNAL_FUNCTION_PARAMETERS)
-    #define ZEND_FUNCTION(name)		ZEND_NAMED_FUNCTION(ZEND_FN(name))
+    #define ZEND_FUNCTION(name)			ZEND_NAMED_FUNCTION(ZEND_FN(name))
     
     #define INTERNAL_FUNCTION_PARAMETERS int ht, zval *return_value, zval **return_value_ptr, zval *this_ptr, int return_value_used TSRMLS_DC
     
     //函数展开效果
     void zif_return_string(int ht, zval *return_value, zval **return_value_ptr, zval *this_ptr, int return_value_used TSRMLS_DC)
- 
-> - `int ht`
-> - `zval *return_value`，我们在函数内部修改这个指针，函数执行完成后，内核将把这个指针指向的zval返回给用户端的函数调用者。
-> - `zval **return_value_ptr`，
-> - `zval *this_ptr`，如果此函数是一个类的方法，那么这个指针的含义和PHP语言中$this变量差不多。
-> - `int return_value_used`，代表用户端在调用此函数时有没有使用到它的返回值。 
-    
+
+###INTERNAL_FUNCTION_PARAMETERS 参数说明
+名称和类型|描述|访问宏
+---|---|---
+int ht	|用户实际传递参数的数量	|ZEND_NUM_ARGS()
+zval *return_value	|PHP 变量的指针，可填充返回值传递给用户。默认值是 IS_NULL。	|RETVAL_*, RETURN_*
+zval **return_value_ptr	|当返回引用时，PHP 将其设为变量的指针。不建议返回引用。|	 
+zval *this_ptr	|假如这是一个方法调用，其指向存放 $this 对象的 PHP 变量。|	getThis()
+int return_value_used	|指示返回值是否会被调用者使用的标志。 caller.	 |
