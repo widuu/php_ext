@@ -43,6 +43,7 @@ PHP_MSHUTDOWN_FUNCTION(w_string);
 PHP_MINFO_FUNCTION(w_string);
 
 PHP_FUNCTION(return_string);
+PHP_FUNCTION(return_long);
 
 
 #ifdef ZTS

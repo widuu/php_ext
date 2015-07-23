@@ -3,7 +3,8 @@
 ##function 
 
 	string function return_string();  //echo website:http://www.widuu.com
-    
+    int    function return_long(1);   //echo 1, 必须要有一个参数
+
 ##knowledge
 
 >函数原型 

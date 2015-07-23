@@ -35,6 +35,7 @@ static int le_w_string;
  * Every user visible function must have an entry in w_string_functions[].
  */
 const zend_function_entry w_string_functions[] = {
+	PHP_FE( return_long , NULL )
 	PHP_FE( return_string , NULL )
 	PHP_FE_END	/* Must be the last line in w_string_functions[] */
 };
@@ -93,7 +94,24 @@ PHP_FUNCTION(return_string){
 	return_value->type = IS_STRING;
 }
 /*}}}*/
+/*
+{{{  PHP_FUNCTION(return_long)
+*/
+PHP_FUNCTION(return_long){
 
+	long	i;
+	if(zend_parse_parameters(ZEND_NUM_ARGS() TSRMLS_CC,"l",&i) == FAILURE){
+		    WRONG_PARAM_COUNT;
+	 }
+
+	return_value->value.lval = i;
+	return_value->type = IS_LONG;
+	// ==
+	//ZVAL_LONG(return_value, i);
+	// or
+	//RETURN_LONG(i);
+}
+/*}}}*/
 /* {{{ PHP_MINFO_FUNCTION
  */
 PHP_MINFO_FUNCTION(w_string)
